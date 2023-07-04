@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Belanosima:wght@700&family=Dancing+Script:wght@700&family=Kaushan+Script&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Kaushan+Script&family=Kenia&display=swap');
 #root {
   width: 100%;
   margin: 0 auto;
@@ -26,6 +26,7 @@ body {
 
 .search__input {
   width: 75%;
+  min-width: 280px;
   padding: 12px 24px;
   margin: 20px;
   background-color: transparent;
@@ -67,7 +68,6 @@ body {
   position: relative;
   width: 75%;
   min-width: 280px;
-  height: 50px;
   background: #f1f1f1;
   margin: 20px auto 0;
   word-break: break-all;
@@ -113,9 +113,14 @@ body {
 }
 
 .Header--container {
+  width: 50%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  font-family: "Belanosima", sans-serif;
+  align-items: center;
+}
+.Header--container strong{
+  color: #0d6efd;
 }
 .google-font {
   font-family: "Dancing Script", cursive;
@@ -128,4 +133,4 @@ a {
   .table-big-row {
     width: 500px;
   }
-} 
+}
