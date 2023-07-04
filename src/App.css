@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Kaushan+Script&family=Kenia&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Kaushan+Script&family=Kenia&display=swap");
 #root {
   width: 100%;
   margin: 0 auto;
@@ -28,9 +28,8 @@ body {
   width: 75%;
   min-width: 280px;
   padding: 12px 24px;
-  margin: 20px;
+  margin: 20px 0px;
   background-color: transparent;
-  transition: transform 250ms ease-in-out;
   font-size: 14px;
   line-height: 18px;
   color: #575756;
@@ -119,7 +118,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.Header--container strong{
+.Header--container strong {
   color: #0d6efd;
 }
 .google-font {

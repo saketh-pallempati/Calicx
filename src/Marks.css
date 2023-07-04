@@ -13,9 +13,8 @@ code {
   max-width: 80%;
   margin: 1rem auto;
   margin-bottom: 5rem;
-  border: 2px solid #5252f4;
   background-color: #b8c6db;
-  background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+  background-image: linear-gradient(315deg, #d3d3fc 0%, #f5f7fa 74%);
   box-shadow: 0 7px 20px 5px #000 88;
   border-radius: 0.7rem;
   backdrop-filter: blur(7px);
@@ -64,7 +63,6 @@ code {
   transition: 0.7s all;
 }
 .nft:hover {
-  border: 1px solid black;
   box-shadow: 0 7px 50px 10px #5252f4;
   transform: scale(1.015);
   filter: brightness(1.3);
