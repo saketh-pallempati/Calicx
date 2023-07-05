@@ -19,19 +19,19 @@ export default function FooterButton() {
 
             <div className={`grid-collapse__wrapper ${isOpen ? "is-open" : ""}`}>
                 <div className="grid-collapse__inner">
-                    <h5 style={{ padding: 15, paddingBottom : 0}}>
-                        The source code of the project is hosted on GitHub 
-                        <a href="https://github.com/saketh-pallempati" style={{display : "block"}}>
-                        @Saketh Pallempati
+                    <h5 style={{ padding: 15, paddingBottom: 0 }}>
+                        The source code of the project is hosted on GitHub
+                        <a href="https://github.com/saketh-pallempati" style={{ display: "block" }}>
+                            Click here!
                         </a>{" "}
-                        <p style={{ fontSize: 14,  fontStyle : "italic"}}>(PS: Dark mode, anyone?)</p>
+                        <p style={{ fontSize: 14, fontStyle: "italic" }}>(PS: Dark mode, anyone?)</p>
                     </h5>
-                    <p style={{ padding: 15, margin : 0 }}>
+                    <p style={{ padding: 15, margin: 0 }}>
                         {" "}
-                        A machine learning model that can solve CAPTCHAs to automate
-                        the login process has been developed by{" "}
+                        A machine learning model is used to solve CAPTCHAs and automate
+                        the login process {" => "}
                         <a href="https://github.com/Marxalpha/Captcha_Solver">
-                            KNM Sai Krishna
+                            Github LInk 
                         </a>
                     </p>
                 </div>
