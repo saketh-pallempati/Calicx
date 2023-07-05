@@ -1,15 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Kaushan+Script&family=Kenia&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Dancing+Script:wght@700&family=Kaushan+Script&family=Kenia&display=swap');
+
 #root {
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+
 body {
   font: 1em/1.618 Verdana, sans-serif;
   display: flex;
@@ -39,7 +42,7 @@ body {
   background-size: 18px 18px;
   background-position: 95% center;
   border-radius: 50px;
-  border: 1px solid #575756;
+  border: 2px solid #575756;
   transition: all 250ms ease-in-out;
   backface-visibility: hidden;
   transform-style: preserve-3d;
@@ -55,60 +58,10 @@ body {
 .search__input:focus {
   padding: 12px 0;
   outline: 0;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-bottom: 1px solid #575756;
   border-radius: 0;
   background-position: 100% center;
-}
-
-.container--tabs {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 75%;
-  min-width: 280px;
-  background: #f1f1f1;
-  margin: 20px auto 0;
-  word-break: break-all;
-  border: 1px solid rgba(0, 0, 0, 0.274);
-}
-
-.bloc-tabs {
-  display: flex;
-}
-.tabs {
-  padding: 15px;
-  text-align: center;
-  width: 50%;
-  background: rgba(128, 128, 128, 0.075);
-  cursor: pointer;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
-  box-sizing: content-box;
-  position: relative;
-  outline: none;
-}
-.tabs:not(:last-child) {
-  border-right: 1px solid rgba(0, 0, 0, 0.274);
-}
-
-.active-tabs {
-  background: white;
-  border-bottom: 1px solid transparent;
-}
-
-.active-tabs::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% + 2px);
-  height: 5px;
-  background: #0d6efd;
-}
-.content-tabs {
-  flex-grow: 1;
 }
 
 .Header--container {
@@ -118,16 +71,20 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .Header--container strong {
   color: #0d6efd;
 }
+
 .google-font {
   font-family: "Dancing Script", cursive;
   font-size: x-large;
 }
+
 a {
   cursor: pointer;
 }
+
 @media screen and (min-width: 900px) {
   .table-big-row {
     width: 500px;

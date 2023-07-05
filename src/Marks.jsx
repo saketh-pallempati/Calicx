@@ -1,10 +1,10 @@
 import "./Marks.css";
 import { useState, useEffect } from "react";
-import Pagination from 'react-bootstrap/Pagination';
+import Pagination from "react-bootstrap/Pagination";
 import AnimatedPage from "./AnimatedPage";
 import { AnimatePresence } from "framer-motion";
 import axios from "axios";
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from "react-router-dom";
 
 function Marks() {
   const { id } = useParams();
@@ -23,17 +23,20 @@ function Marks() {
   }, [data]);
 
   const fetchMarks = () => {
-    axios.get('https://calicxapi.vercel.app/' + id)
+    axios
+      .get("https://calicxapi.vercel.app/" + id)
       .then((res) => setData(res.data))
-      .catch(err => console.log(err));
-  }
+      .catch((err) => console.log(err));
+  };
 
   const handleViews = async (test_id) => {
     try {
-      const response = await axios.get('https://calicxapi.vercel.app/api/getViews/' + test_id);
+      const response = await axios.get(
+        "https://calicxapi.vercel.app/api/getViews/" + test_id
+      );
       setViews(response.data);
     } catch (error) {
-      console.error('Error: ', error);
+      console.error("Error: ", error);
     }
   };
 
@@ -49,7 +52,7 @@ function Marks() {
         id={number}
       >
         {number}
-      </Pagination.Item>,
+      </Pagination.Item>
     );
   }
 
@@ -66,10 +69,18 @@ function Marks() {
         <div className="flex-marks">
           <div className="SGPA">
             <strong>SGPA</strong>
-            <p><strong>1 :</strong> {data.gpa[1].toFixed(4)}</p>
-            <p><strong>2 :</strong> {data.gpa[2].toFixed(4)}</p>
-            <p><strong>3 :</strong> {data.gpa[3].toFixed(4)}</p>
-            <p><strong>4 :</strong> {data.gpa[4].toFixed(4)}</p>
+            <p>
+              <strong>1 :</strong> {data.gpa[1].toFixed(4)}
+            </p>
+            <p>
+              <strong>2 :</strong> {data.gpa[2].toFixed(4)}
+            </p>
+            <p>
+              <strong>3 :</strong> {data.gpa[3].toFixed(4)}
+            </p>
+            <p>
+              <strong>4 :</strong> {data.gpa[4].toFixed(4)}
+            </p>
           </div>
           <div className="tokenInfo">
             <strong>CGPA</strong>
@@ -86,11 +97,11 @@ function Marks() {
         <AnimatePresence mode="wait">
           <AnimatedPage key={active}>
             <div className="animate">
-              <table >
-                <thead >
+              <table>
+                <thead>
                   <tr>
                     <th>Code</th>
-                    <th className='table-big-row'>Description</th>
+                    <th className="table-big-row">Description</th>
                     <th>CIA</th>
                     <th>Credit</th>
                     <th>Grade</th>
@@ -119,7 +130,16 @@ function Marks() {
           <Pagination size="lg">{items}</Pagination>
         </div>
       </div>
-      <Link to="/" style={{ fontFamily: 'Kaushan Script', fontSize: 60, textDecoration: "none" }}>Calicx_.</Link>
+      <Link
+        to="/"
+        style={{
+          fontFamily: "Kaushan Script",
+          fontSize: 60,
+          textDecoration: "none",
+        }}
+      >
+        Calicx_.
+      </Link>
     </>
   );
 }

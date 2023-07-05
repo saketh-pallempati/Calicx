@@ -7,7 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Pagination from "react-bootstrap/Pagination";
 import AnimatedPage from "./AnimatedPage";
 import { AnimatePresence } from "framer-motion";
+import FooterButton from "./FooterButton";
+import SegmentedControl from "./SegmentedControl";
+
 function App() {
+  const [activeOption, setActiveOption] = useState(1);
+
   const [Data, setData] = useState(null);
   useEffect(() => {
     Axios.get("https://calicxapi.vercel.app/initialData")
@@ -45,11 +50,6 @@ function App() {
       </Pagination.Item>
     );
   }
-  const [toggle, setToggle] = useState(true);
-
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
 
   const [state, setstate] = useState({
     query: "",
@@ -59,7 +59,7 @@ function App() {
     const results = Data.data?.filter((post) => {
       if (e.target.value === "") return null;
       {
-        if (toggle)
+        if (activeOption === 1)
           return post.Name.toString()
             .toLowerCase()
             .includes(e.target.value.toLowerCase());
@@ -79,22 +79,7 @@ function App() {
   return (
     <>
       <p style={{ fontFamily: "Kaushan Script", fontSize: 60 }}>Calicx_.</p>
-      <div className="container--tabs">
-        <div className="bloc-tabs">
-          <button
-            className={toggle === true ? "tabs active-tabs" : "tabs"}
-            onClick={() => handleToggle()}
-          >
-            Name
-          </button>
-          <button
-            className={toggle === false ? "tabs active-tabs" : "tabs"}
-            onClick={() => handleToggle()}
-          >
-            RegNo
-          </button>
-        </div>
-      </div>
+      <SegmentedControl setActiveOption={setActiveOption} activeOption={activeOption} />
       <div className="search__container">
         <input
           className="search__input"
@@ -136,23 +121,9 @@ function App() {
             >
               <Pagination size="lg">{items}</Pagination>
             </div>
-            <footer>
-              <h5>
-                The source code of the project is hosted on GitHub @
-                <a href="https://github.com/saketh-pallempati">
-                  Saketh Pallempati
-                </a>{" "}
-                <p style={{ fontSize: 16 }}>(PS: Dark mode, anyone?)</p>
-              </h5>
-              <p>
-                {" "}
-                A machine learning model that can solve captchas to automate the
-                login process has been developed by{" "}
-                <a href="https://github.com/Marxalpha/Captcha_Solver">
-                  KNM Sai Krishna
-                </a>
-              </p>
-            </footer>
+            <div className="small--screen" style={{ width: '75%', minWidth: 300 }}>
+              <FooterButton />
+            </div>
           </>
         ) : (
           <div className="ag-format-container">
