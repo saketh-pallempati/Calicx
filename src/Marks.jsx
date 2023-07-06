@@ -5,6 +5,7 @@ import AnimatedPage from "./AnimatedPage";
 import { AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import Loader from "./Loader";
 
 function Marks() {
   const { id } = useParams();
@@ -56,7 +57,7 @@ function Marks() {
     );
   }
 
-  if (!data) return null;
+  if (!data) return <Loader />;
 
   return (
     <>

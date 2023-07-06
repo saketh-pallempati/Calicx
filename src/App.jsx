@@ -112,11 +112,11 @@ function App() {
             </AnimatePresence>
             <div
               style={{
-                width: 1000,
+                width: "100%",
                 display: "flex",
                 alignItems: "baseline",
                 justifyContent: "center",
-                padding: 40,
+                padding: "40px"
               }}
             >
               <Pagination size="lg">{items}</Pagination>
