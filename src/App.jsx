@@ -84,9 +84,8 @@ function App() {
         <input
           className="search__input"
           placeholder={`Enter Your ${activeOption === 1 ? 'Name' : 'RegNo'}`}
-        onChange={handleChange}
-        value={state.query}
-        type="search"
+          onChange={handleChange}
+          value={state.query}
         />
       </div>
 
