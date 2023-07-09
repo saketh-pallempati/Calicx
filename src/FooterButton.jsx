@@ -16,7 +16,6 @@ export default function FooterButton() {
                     {isOpen ? "Close" : "About"}
                 </Button>
             </div>
-
             <div className={`grid-collapse__wrapper ${isOpen ? "is-open" : ""}`}>
                 <div className="grid-collapse__inner">
                     <h5 style={{ padding: 15, paddingBottom: 0 }}>
@@ -31,7 +30,7 @@ export default function FooterButton() {
                         A machine learning model is used to solve CAPTCHAs and automate
                         the login process {" => "}
                         <a href="https://github.com/Marxalpha/Captcha_Solver">
-                            Github LInk 
+                            Github LInk
                         </a>
                     </p>
                 </div>

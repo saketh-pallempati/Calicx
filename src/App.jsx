@@ -120,9 +120,9 @@ function App() {
             >
               <Pagination size="lg">{items}</Pagination>
             </div>
-            <div className="small--screen" style={{ width: '75%', minWidth: 300 }}>
+            {/* <div className="small--screen" style={{ width: '75%', minWidth: 300 }}>
               <FooterButton />
-            </div>
+            </div> */}
           </>
         ) : (
           <div className="ag-format-container">
