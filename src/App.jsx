@@ -7,8 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Pagination from "react-bootstrap/Pagination";
 import AnimatedPage from "./AnimatedPage";
 import { AnimatePresence } from "framer-motion";
-import FooterButton from "./FooterButton";
 import SegmentedControl from "./SegmentedControl";
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 function App() {
   const [activeOption, setActiveOption] = useState(1);
@@ -120,9 +121,20 @@ function App() {
             >
               <Pagination size="lg">{items}</Pagination>
             </div>
-            {/* <div className="small--screen" style={{ width: '75%', minWidth: 300 }}>
-              <FooterButton />
-            </div> */}
+            <div>
+
+            </div>
+            <Button variant="primary" className="w-75">
+              <Link
+                to="/Branch"
+                style={{ color: "white", fontSize: 20, textDecoration: "none" }}
+              >
+                Branch wise detials
+              </Link>
+            </Button>
+
+
+
           </>
         ) : (
           <div className="ag-format-container">

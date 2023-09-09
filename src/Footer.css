@@ -1,4 +1,4 @@
-/* .demo-container {
+.demo-container {
     position: relative;
     margin-inline: calc(1rem * -1);
     border: 2px solid hsl(211deg 90% 40%);
@@ -24,4 +24,4 @@
 
 .grid-collapse__wrapper.is-open {
     grid-template-rows: 1fr;
-} */
+}

@@ -1,5 +1,5 @@
-import { FlatTree } from "framer-motion";
 import ReactLoading from "https://cdn.skypack.dev/react-loading@2.0.3";
+import './Loader.css';
 
 export default function Loader() {
     return (
@@ -7,9 +7,8 @@ export default function Loader() {
             <ReactLoading
                 type={"bars"}
                 color={"#5465ff"}
-                height={"15%"}
-                width={"15%"}
             />
         </div>
     );
 }
+
