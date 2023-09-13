@@ -4,8 +4,6 @@ import Pagination from "react-bootstrap/Pagination";
 import Axios from 'axios'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import AnimatedPage from "./AnimatedPage";
-import { AnimatePresence } from "framer-motion";
 import Loader from "./Loader";
 
 
@@ -78,12 +76,12 @@ export default function Branch() {
   const [branch, setBranch] = useState("");
 
   const handleSelect = async (selectedBranch) => {
+    setActive(1)
     setBranch(selectedBranch);
     try {
       const response = await Axios.get("https://calicxapi.vercel.app/branch", {
         params: { branch: selectedBranch },
       });
-      setActive(1);
       setTableData(response.data);
     } catch (error) {
       console.error(error);
@@ -103,7 +101,6 @@ export default function Branch() {
         <DropdownButton
           id="dropdown-basic-button"
           title={branch.includes("(") ? branch.split("(")[1].split(")")[0] : branch}
-
           onSelect={handleSelect}
         >
           {branchList.map((item, index) => (
@@ -114,41 +111,38 @@ export default function Branch() {
         </DropdownButton>
       </div>
 
-      <AnimatePresence mode="wait">
-        <AnimatedPage key={active}>
 
-          <table>
-            <thead className="tbl-header">
-              <tr>
-                <th>Index</th>
-                <th >RegNo</th>
-                <th style={{ width: '400px' }}>Name</th>
-                <th>GPA</th>
-                <th>Rank</th>
+      <table>
+        <thead className="tbl-header">
+          <tr>
+            <th>Index</th>
+            <th >RegNo</th>
+            <th style={{ width: '400px' }}>Name</th>
+            <th>GPA</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+        <tbody className="tbl-content">
+          {currentItems.map((val, index) => {
+            const overallIndex = (active - 1) * rowsPerPage + index + 1;
+
+            return (
+              <tr key={val.SNo}>
+                <td>{overallIndex}</td>
+                <td>{val.RegNo}</td>
+                <td>
+                  <Link to={`/marks/${val.SNo}`} className="link-primary">
+                    {val.Name}
+                  </Link>
+                </td>
+                <td>{val.gpa["cgpa"].toFixed(4)}</td>
+                <td>{val.rank}</td>
               </tr>
-            </thead>
-            <tbody className="tbl-content">
-              {currentItems.map((val, index) => {
-                const overallIndex = (active - 1) * rowsPerPage + index + 1;
+            );
+          })}
+        </tbody>
+      </table>
 
-                return (
-                  <tr key={val.SNo}>
-                    <td>{overallIndex}</td>
-                    <td>{val.RegNo}</td>
-                    <td>
-                      <Link to={`/marks/${val.SNo}`} className="link-primary">
-                        {val.Name}
-                      </Link>
-                    </td>
-                    <td>{val.gpa["cgpa"].toFixed(4)}</td>
-                    <td>{val.rank}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </AnimatedPage>
-      </AnimatePresence>
       <div style={{
         width: "100%",
         display: "flex",
@@ -156,7 +150,7 @@ export default function Branch() {
         justifyContent: "center",
         padding: "40px"
       }}>
-        <Pagination size="lg" style={{ margin: 10 }}>{items}</Pagination>
+        <Pagination>{items}</Pagination>
       </div>
       <Link
         to="/"
