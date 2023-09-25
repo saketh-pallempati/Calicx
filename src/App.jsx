@@ -13,7 +13,6 @@ import Button from 'react-bootstrap/Button';
 
 function App() {
   const [activeOption, setActiveOption] = useState(1);
-
   const [Data, setData] = useState(null);
   useEffect(() => {
     Axios.get("https://calicxapi.vercel.app/initialData")
