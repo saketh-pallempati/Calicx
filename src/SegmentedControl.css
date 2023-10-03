@@ -16,8 +16,8 @@
   --color-grey-80: #6B6A6A;
   --color-grey-85: #59595F;
   --shadow-fire:
-    0 4px 12px 4px #00D8FD,
-    0 1px 3px 0 rgba(246, 255, 0, 0.897);
+    0 4px 12px 4px #00AAFF,
+    0 1px 3px 0 #00D8FD;
 
   --focus-style: dotted 2px var(--color-black);
   --focus-offset: 2px;
