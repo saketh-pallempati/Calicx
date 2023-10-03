@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: aliceblue;
 }
 
 *,
@@ -73,8 +74,10 @@ body {
 }
 
 .Header--container strong {
-  color: #0d6efd;
+  color: #00AAFF;
+
 }
+
 
 .google-font {
   font-family: "Dancing Script", cursive;
@@ -88,5 +91,44 @@ a {
 @media screen and (min-width: 900px) {
   .table-big-row {
     width: 500px;
+  }
+}
+
+.button-branch {
+  align-items: center;
+  background: #f5f5fa;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: -10px -10px 30px 0 #fff, 10px 10px 30px 0 #1d0dca17;
+  box-sizing: border-box;
+  color: #2a1f62;
+  cursor: pointer;
+  display: flex;
+  font-family: "Cascadia Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1rem;
+  justify-content: center;
+  line-height: 1.5rem;
+  padding: 15px;
+  position: relative;
+  text-align: left;
+  transition: .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: pre;
+  width: max-content;
+  word-break: normal;
+  word-spacing: normal;
+}
+
+.button-branch:hover {
+  background: #f8f8ff;
+  
+  box-shadow: -15px -15px 30px 0 #fff, 15px 15px 30px 0 #1d0dca17;
+}
+
+@media (min-width: 768px) {
+  .button-branch {
+    padding: 24px;
   }
 }

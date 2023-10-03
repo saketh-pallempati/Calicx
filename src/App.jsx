@@ -9,7 +9,6 @@ import AnimatedPage from "./AnimatedPage";
 import { AnimatePresence } from "framer-motion";
 import SegmentedControl from "./SegmentedControl";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 
 function App() {
   const [activeOption, setActiveOption] = useState(1);
@@ -123,14 +122,15 @@ function App() {
             <div>
 
             </div>
-            <Button variant="primary" className="w-75">
+
+            <button className="button-branch" role="button">
               <Link
                 to="/Branch"
-                style={{ color: "white", fontSize: 20, textDecoration: "none" }}
+                style={{ textDecoration: "none" }}
               >
                 Branch wise detials
               </Link>
-            </Button>
+            </button>
 
 
 
@@ -151,7 +151,7 @@ function App() {
             </div>
           </div>
         )}
-      </div>
+      </div >
     </>
   );
 }

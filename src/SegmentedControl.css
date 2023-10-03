@@ -7,7 +7,7 @@
   --color-fire: #5465ff;
   --color-black: #191919;
   --color-grey-5: #FBFBFB;
-  --color-grey-10: #F6F7F7;
+  --color-grey-10: #FAF8FF;
   --color-grey-cool-10: #EEEEEF;
   --color-grey-15: #E8E8E8;
   --color-grey-20: #D5D6D8;
@@ -16,8 +16,8 @@
   --color-grey-80: #6B6A6A;
   --color-grey-85: #59595F;
   --shadow-fire:
-    0 4px 12px 4px rgba(0, 0, 255, 0.2),
-    0 1px 3px 0 rgba(7, 7, 137, 0.4);
+    0 4px 12px 4px #00D8FD,
+    0 1px 3px 0 rgba(246, 255, 0, 0.897);
 
   --focus-style: dotted 2px var(--color-black);
   --focus-offset: 2px;
