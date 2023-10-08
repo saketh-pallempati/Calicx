@@ -1,14 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Pagination from "react-bootstrap/Pagination";
-import Axios from 'axios'
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import Axios from "axios";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import Loader from "./Loader";
 
-
 export default function Branch() {
-
   useEffect(() => {
     handleSelect(branchList[0]);
   }, []);
@@ -65,18 +63,18 @@ export default function Branch() {
   const currentItems = tableData.slice(indexOfFirstItem, indexOfLastItem);
 
   const branchList = [
-    'Computer Science & Engineering (IoT & Automation)',
-    'Computer Science & Engineering',
-    'Computer Science & Business Systems',
-    'Computer Science & Engineering (Artificial Intelligence & Data Science)',
-    'Computer Science & Engineering (Cyber Security & Blockchain Technology)',
-    'Information & Communication Technology',
-    'Information Technology'
+    "Computer Science & Engineering (IoT & Automation)",
+    "Computer Science & Engineering",
+    "Computer Science & Business Systems",
+    "Computer Science & Engineering (Artificial Intelligence & Data Science)",
+    "Computer Science & Engineering (Cyber Security & Blockchain Technology)",
+    "Information & Communication Technology",
+    "Information Technology",
   ];
   const [branch, setBranch] = useState("");
 
   const handleSelect = async (selectedBranch) => {
-    setActive(1)
+    setActive(1);
     setBranch(selectedBranch);
     try {
       const response = await Axios.get("https://calicxapi.vercel.app/branch", {
@@ -91,16 +89,20 @@ export default function Branch() {
 
   return (
     <>
-      <div style={{
-        width: "100%",
-        display: "flex",
-        alignItems: "baseline",
-        justifyContent: "center",
-        paddingBottom: 40
-      }}>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "baseline",
+          justifyContent: "center",
+          paddingBottom: 40,
+        }}
+      >
         <DropdownButton
           id="dropdown-basic-button"
-          title={branch.includes("(") ? branch.split("(")[1].split(")")[0] : branch}
+          title={
+            branch.includes("(") ? branch.split("(")[1].split(")")[0] : branch
+          }
           onSelect={handleSelect}
         >
           {branchList.map((item, index) => (
@@ -111,13 +113,12 @@ export default function Branch() {
         </DropdownButton>
       </div>
 
-
       <table>
         <thead className="tbl-header">
           <tr>
             <th>Index</th>
-            <th >RegNo</th>
-            <th style={{ width: '400px' }}>Name</th>
+            <th>RegNo</th>
+            <th>Name</th>
             <th>GPA</th>
             <th>Rank</th>
           </tr>
@@ -143,13 +144,15 @@ export default function Branch() {
         </tbody>
       </table>
 
-      <div style={{
-        width: "100%",
-        display: "flex",
-        alignItems: "baseline",
-        justifyContent: "center",
-        padding: "40px"
-      }}>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "baseline",
+          justifyContent: "center",
+          padding: "40px",
+        }}
+      >
         <Pagination>{items}</Pagination>
       </div>
       <Link
@@ -163,5 +166,5 @@ export default function Branch() {
         Calicx_.
       </Link>
     </>
-  )
+  );
 }
