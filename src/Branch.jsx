@@ -77,7 +77,7 @@ export default function Branch() {
     setActive(1);
     setBranch(selectedBranch);
     try {
-      const response = await Axios.get("http://localhost:8080/branch", {
+      const response = await Axios.get(`${import.meta.env.VITE_APP_API_ENDPOINT}/branch`, {
         params: { branch: selectedBranch },
       });
       setTableData(response.data);

@@ -25,15 +25,15 @@ function Marks() {
 
   const fetchMarks = () => {
     axios
-      .get("http://localhost:8080/" + id)
+      .get(`${import.meta.env.VITE_APP_API_ENDPOINT}/` + id)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  };
+  };  
 
   const handleViews = async (test_id) => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/getViews/" + test_id
+        `${import.meta.env.VITE_APP_API_ENDPOINT}/api/getViews/` + test_id
       );
       setViews(response.data);
     } catch (error) {

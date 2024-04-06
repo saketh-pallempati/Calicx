@@ -9,26 +9,28 @@ import AnimatedPage from "./AnimatedPage";
 import { AnimatePresence } from "framer-motion";
 import SegmentedControl from "./SegmentedControl";
 import { Link } from "react-router-dom";
-
+import TableSkeleton from "./TableSkeleton";
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [activeOption, setActiveOption] = useState(1);
   const [Data, setData] = useState(null);
   useEffect(() => {
-    Axios.get("http://localhost:8080/initialData")
+    Axios.get(`${import.meta.env.VITE_APP_API_ENDPOINT}/initialData`)
       .then((res) => setData(res))
       .catch((err) => console.log(err));
-    Axios.get("http://localhost:8080/sort", { params: { sem: 0 } }).then(
-      (ans) => {
-        setTableData(ans.data);
-      }
-    );
+    Axios.get(`${import.meta.env.VITE_APP_API_ENDPOINT}/sort`, {
+      params: { sem: 0 },
+    }).then((ans) => {
+      setTableData(ans.data);
+      setIsLoading(false);
+    });
   }, []);
   const [tableData, setTableData] = useState();
   function handleClick(id) {
     getAllDetails(id);
   }
   async function getAllDetails(id) {
-    Axios.get("http://localhost:8080/sort", {
+    Axios.get(`${import.meta.env.VITE_APP_API_ENDPOINT}/sort`, {
       params: { sem: id },
     }).then((ans) => {
       setTableData(ans.data);
@@ -115,7 +117,7 @@ function App() {
             </div>
             <AnimatePresence mode="wait">
               <AnimatedPage key={active}>
-                <Table tableData={tableData} tableId={active} key={active} />
+                {isLoading ? <TableSkeleton/> :<Table tableData={tableData} tableId={active} key={active} />  }
               </AnimatedPage>
             </AnimatePresence>
             <div
