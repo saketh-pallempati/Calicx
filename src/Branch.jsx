@@ -77,7 +77,7 @@ export default function Branch() {
     setActive(1);
     setBranch(selectedBranch);
     try {
-      const response = await Axios.get("https://calicxapi.vercel.app/branch", {
+      const response = await Axios.get("http://localhost:8080/branch", {
         params: { branch: selectedBranch },
       });
       setTableData(response.data);
@@ -163,7 +163,7 @@ export default function Branch() {
           textDecoration: "none",
         }}
       >
-        Calicx_.
+        Calix_.
       </Link>
     </>
   );

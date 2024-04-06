@@ -25,7 +25,7 @@ function Marks() {
 
   const fetchMarks = () => {
     axios
-      .get("https://calicxapi.vercel.app/" + id)
+      .get("http://localhost:8080/" + id)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   };
@@ -33,7 +33,7 @@ function Marks() {
   const handleViews = async (test_id) => {
     try {
       const response = await axios.get(
-        "https://calicxapi.vercel.app/api/getViews/" + test_id
+        "http://localhost:8080/api/getViews/" + test_id
       );
       setViews(response.data);
     } catch (error) {
@@ -81,6 +81,9 @@ function Marks() {
             </p>
             <p>
               <strong>4 :</strong> {data.gpa[4].toFixed(4)}
+            </p>
+            <p>
+              <strong>5 :</strong> {data.gpa[5].toFixed(4)}
             </p>
           </div>
           <div className="tokenInfo">
@@ -139,7 +142,7 @@ function Marks() {
           textDecoration: "none",
         }}
       >
-        Calicx_.
+        Calix_.
       </Link>
     </>
   );

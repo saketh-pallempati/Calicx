@@ -14,10 +14,10 @@ function App() {
   const [activeOption, setActiveOption] = useState(1);
   const [Data, setData] = useState(null);
   useEffect(() => {
-    Axios.get("https://calicxapi.vercel.app/initialData")
+    Axios.get("http://localhost:8080/initialData")
       .then((res) => setData(res))
       .catch((err) => console.log(err));
-    Axios.get("https://calicxapi.vercel.app/sort", { params: { sem: 0 } }).then(
+    Axios.get("http://localhost:8080/sort", { params: { sem: 0 } }).then(
       (ans) => {
         setTableData(ans.data);
       }
@@ -28,7 +28,7 @@ function App() {
     getAllDetails(id);
   }
   async function getAllDetails(id) {
-    Axios.get("https://calicxapi.vercel.app/sort", {
+    Axios.get("http://localhost:8080/sort", {
       params: { sem: id },
     }).then((ans) => {
       setTableData(ans.data);
@@ -37,7 +37,7 @@ function App() {
   }
   const [active, setActive] = useState(0);
   let items = [];
-  for (let number = 0; number <= 4; number++) {
+  for (let number = 0; number <= 5; number++) {
     items.push(
       <Pagination.Item
         key={number}
@@ -75,14 +75,24 @@ function App() {
     });
   };
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsMobile(window.innerWidth <= 568);
+    });
+  }, []);
   return (
     <>
-      <p style={{ fontFamily: "Kaushan Script", fontSize: 60 }}>Calicx_.</p>
-      <SegmentedControl setActiveOption={setActiveOption} activeOption={activeOption} />
+      <p style={{ fontFamily: "Kaushan Script", fontSize: 60 }}>Calix_.</p>
+      <SegmentedControl
+        setActiveOption={setActiveOption}
+        activeOption={activeOption}
+      />
       <div className="search__container">
         <input
           className="search__input"
-          placeholder={`Enter Your ${activeOption === 1 ? 'Name' : 'RegNo'}`}
+          placeholder={`Enter Your ${activeOption === 1 ? "Name" : "RegNo"}`}
           onChange={handleChange}
           value={state.query}
         />
@@ -112,28 +122,20 @@ function App() {
               style={{
                 width: "100%",
                 display: "flex",
-                alignItems: "baseline",
+                alignItems: "center",
                 justifyContent: "center",
-                padding: "40px"
+                padding: "40px",
+                paddingBottom: "0px",
               }}
             >
-              <Pagination size="lg">{items}</Pagination>
-            </div>
-            <div>
-
+              <Pagination size={isMobile ? "sm" : "lg"}>{items}</Pagination>
             </div>
 
             <button className="button-branch" role="button">
-              <Link
-                to="/Branch"
-                style={{ textDecoration: "none" }}
-              >
-                Branch wise detials
+              <Link to="/Branch" style={{ textDecoration: "none" }}>
+                Branch wise details
               </Link>
             </button>
-
-
-
           </>
         ) : (
           <div className="ag-format-container">
@@ -151,7 +153,7 @@ function App() {
             </div>
           </div>
         )}
-      </div >
+      </div>
     </>
   );
 }
