@@ -21,7 +21,9 @@ code {
   -webkit-backdrop-filter: blur(7px);
   overflow: hidden;
   transition: 0.5s all;
+  min-width: 300px;
 }
+
 .main {
   display: flex;
   flex-direction: column;
