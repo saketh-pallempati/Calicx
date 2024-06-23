@@ -39,7 +39,7 @@ function App() {
   }
   const [active, setActive] = useState(0);
   let items = [];
-  for (let number = 0; number <= 5; number++) {
+  for (let number = 0; number <= 6; number++) {
     items.push(
       <Pagination.Item
         key={number}

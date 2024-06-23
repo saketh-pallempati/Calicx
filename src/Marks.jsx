@@ -85,6 +85,9 @@ function Marks() {
             <p>
               <strong>5 :</strong> {data.gpa[5].toFixed(4)}
             </p>
+            <p>
+              <strong>6 :</strong> {data.gpa[6].toFixed(4)}
+            </p>
           </div>
           <div className="tokenInfo">
             <strong>CGPA</strong>
